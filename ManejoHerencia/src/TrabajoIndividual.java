@@ -122,7 +122,6 @@ class PrestamoEducativo extends Prestamo {
                 " - Valor Mensual Pago Carrera: " + valorMensualPagoCarrera;
     }
 }
-
 public class TrabajoIndividual {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -131,7 +130,8 @@ public class TrabajoIndividual {
         int numPrestamos = 0;
 
         int opcion;
-        do {
+        boolean salir = false;
+        while (!salir) {
             System.out.println("Menú:");
             System.out.println("1. Ingresar datos para un préstamo de tipo PrestamoAutomovil");
             System.out.println("2. Ingresar datos para un préstamo de tipo PrestamoEducativo");
@@ -226,10 +226,12 @@ public class TrabajoIndividual {
                     prestamos[numPrestamos] = prestamoEducativo;
                     numPrestamos++;
                     break;
+
+                case 0:
+                    salir = true;
+                    break;
             }
-
-        } while (opcion != 0);
-
+        }
         System.out.println("Lista de préstamos:");
         for (int i = 0; i < numPrestamos; i++) {
             System.out.println(prestamos[i]);
